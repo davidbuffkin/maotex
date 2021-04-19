@@ -1,0 +1,91 @@
+% Latex format for Mu Alpha Theta tests/solutions
+% David Buffkin
+
+% Do not change -----------
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\usepackage{xcolor}
+
+\geometry{
+    paper=letterpaper,
+    left=1in,
+    right=1.2in,
+    bottom=1in,
+    top = 1.2in,
+}
+ 
+\newcommand{\colorifeq}[3]{\ifthenelse{#1=#2}{\textcolor{black}{\fbox{#3}}}{#3}} 
+
+\newcommand{\ans}[5][0]{
+    \begin{center}
+        \begin{tabularx}{.9\textwidth} { X X X X X }
+             \colorifeq{#1}{1}{A. $#2$} & \colorifeq{#1}{2}{B. $#3$} & \colorifeq{#1}{3}{C. $#4$} & \colorifeq{#1}{4}{D. $#5$} & \colorifeq{#1}{5}{E. NOTA}
+        \end{tabularx}
+    \end{center}
+}
+
+\definecolor{solGreen}{rgb}{0,.6,.13}
+\newcommand{\sol}[1]{\textcolor{solGreen}{Solution}: #1}
+
+\newcommand\questiondist{.23in}
+\newcommand{\midtext}[1]{
+    \end{enumerate}
+        #1
+    \begin{enumerate}[resume, itemsep=\questiondist]
+}
+
+\pagestyle{fancy}
+\cfoot{Page \thepage}
+
+% Ok, change ---------
+
+
+% This is the description of the test
+\lhead{Open Analytic Geometry}
+% This is the year and convention name
+\rhead{1492 MA$\Theta$ National Convention}
+
+\begin{document}
+
+% Put the instructions for the test here
+\begin{center}
+\textit{This is the Open Analytic Geometry test. E. NOTA specifies None of the Above. Good luck!}
+\end{center}
+
+% The questions go here
+\begin{enumerate}[itemsep=\questiondist]
+
+    % To create a new question, write
+    % \item <question>
+    % \ans{<choice A>}{<choice B>}{<choice C>}{<choice D>}
+
+    % For example:
+    \item Find the volume of a cube with side length 1.
+    \ans{1}{2}{4}{8}
+    
+    % Creating a solution is the same, but ans has an extra argument depending on the correct answer:
+    % 1 for A, 2 for B, 3 for C, 4 for D, 5 for E
+    
+    % \item <question>
+    % \ans[<1, 2, 3, 4 or 5>]{<choice A>}{<choice B>}{<choice C>}{<choice D>}
+    % \sol{<solution>}
+    
+    % For example,
+    \item Find the volume of a cube with side length 1.
+    \ans[1]{1}{2}{4}{8}
+    \sol{This is due to the fact that $1^3=1$.}
+    
+    % To use plaintext in answer choices, use \text{}
+    % To put text between questions, use \midtext{}
+    % To make a new page (to keep question/answers together), use \newpage
+    
+\end{enumerate}
+
+\end{document}
